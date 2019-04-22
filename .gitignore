@@ -221,3 +221,5 @@ _Pvt_Extensions
 \.idea/\.idea\.OFX\.Reader/\.idea/
 
 \.idea/\.idea\.OFX\.Reader/
+
+ofx_files/
