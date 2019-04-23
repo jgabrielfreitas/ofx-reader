@@ -2,7 +2,7 @@ using System;
 
 namespace OFX.Reader.Application.OFX.Models {
 
-    public sealed class Transaction {
+    public sealed class TransactionModel {
 
         public string TransactionType { get; set; }
         public DateTime TransactionDate { get; set; }
