@@ -17,7 +17,7 @@ namespace OFX.Reader.Infrastructure.FileManager {
 
         public OFXFileReader(OFXDirectorySettings settings) => this._settings = settings;
 
-        public FinancialExchange Parse(string fileName) {
+        public FinancialExchangeModel Parse(string fileName) {
             
             string filePath = Path.Combine(this._settings.OFXFileDirectory, fileName);
 
@@ -38,14 +38,14 @@ namespace OFX.Reader.Infrastructure.FileManager {
 
             if (ofxDocument == null) return null;
             
-            FinancialExchange financialExchange = new FinancialExchange {
+            FinancialExchangeModel financialExchange = new FinancialExchangeModel {
                 FileId = fileName,
                 BankId = int.Parse(ofxDocument.BANKID),
                 AccountId = ofxDocument.ACCTID
             };
 
             foreach (OFXTransaction ofxTransaction in ofxDocument.OFXTransactionCollection) {
-                financialExchange.TransactionCollection.Add(new Transaction {
+                financialExchange.TransactionCollection.Add(new TransactionModel {
                     TransactionId = int.Parse(ofxTransaction.FITID),
                     TransactionDate = DateTime.ParseExact(ofxTransaction.DTPOSTED, "yyyyMMdd", null),
                     TransactionType = ofxTransaction.TRNTYPE,

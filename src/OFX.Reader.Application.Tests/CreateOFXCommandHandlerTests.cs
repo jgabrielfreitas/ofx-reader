@@ -1,7 +1,5 @@
-using System;
 using System.Threading;
 using System.Threading.Tasks;
-using MediatR;
 using OFX.Reader.Application.Interfaces.Infrastructure;
 using OFX.Reader.Application.OFX.Commands.Create;
 using OFX.Reader.Infrastructure.FileManager;
@@ -21,9 +19,14 @@ namespace OFX.Reader.Application.Tests {
         [Fact]
         public async Task CreateOFXCommandTest() {
             CreateOFXCommandHandler handler = new CreateOFXCommandHandler(this._ofxFileReader);
-            Unit result = await handler.Handle(new CreateOFXCommand {
+            var result = await handler.Handle(new CreateOFXCommand {
                 OFXFileName = FILE_NAME
             }, CancellationToken.None);
+            
+            Assert.True(result.BankId > 0);
+            Assert.True(!string.IsNullOrEmpty(result.FileId));
+            Assert.True(!string.IsNullOrEmpty(result.AccountId));
+            Assert.NotNull(result.TransactionCollection);
         }
         
         private OFXDirectorySettings InitDirectorySettings() => new OFXDirectorySettings();

@@ -6,18 +6,23 @@ using OFX.Reader.Application.OFX.Models;
 
 namespace OFX.Reader.Application.OFX.Commands.Create {
 
-    public sealed class CreateOFXCommandHandler : IRequestHandler<CreateOFXCommand> {
+    public sealed class CreateOFXCommandHandler : IRequestHandler<CreateOFXCommand, FinancialExchangeModel> {
 
         private readonly IOFXFileReader _ofxFileReader;
         public CreateOFXCommandHandler(IOFXFileReader ofxFileReader) {
             this._ofxFileReader = ofxFileReader;
         }
 
-        public async Task<Unit> Handle(CreateOFXCommand request, CancellationToken cancellationToken) {
-
-            FinancialExchange financialExchange = this._ofxFileReader.Parse("");
+        public async Task<FinancialExchangeModel> Handle(CreateOFXCommand request, CancellationToken cancellationToken) {
             
-            return Unit.Value;
+            FinancialExchangeModel financialExchange = this._ofxFileReader.Parse(request.OFXFileName);
+            
+            //todo: read by id
+            
+            
+
+            return financialExchange;
+
         }
 
     }

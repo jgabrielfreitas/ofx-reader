@@ -7,7 +7,7 @@ namespace OFX.Reader.Application.OFX.Models {
         public string FileId { get; set; }
         public int BankId { get; set; }
         public string AccountId { get; set; }
-        public List<Transaction> TransactionCollection { get; } = new List<Transaction>();
+        public List<TransactionModel> TransactionCollection { get; } = new List<TransactionModel>();
 
     }
 

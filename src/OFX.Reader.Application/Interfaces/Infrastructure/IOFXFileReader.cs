@@ -4,7 +4,7 @@ namespace OFX.Reader.Application.Interfaces.Infrastructure {
 
     public interface IOFXFileReader {
 
-        FinancialExchange Parse(string fileName);
+        FinancialExchangeModel Parse(string fileName);
 
     }
 
