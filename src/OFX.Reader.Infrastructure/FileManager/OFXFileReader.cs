@@ -23,12 +23,18 @@ namespace OFX.Reader.Infrastructure.FileManager {
 
             if (!File.Exists(filePath)) return null;
 
-            string newFileName = $"{DateTime.UtcNow:O} - {fileName}";
+            string utcNow = DateTime.UtcNow.ToString("O")
+                .Replace("-", string.Empty)
+                .Replace(":", string.Empty)
+                .Replace(".", string.Empty);
+            
+            string newFileName = $"{utcNow}_{fileName}";
+            
             string newFilePath = Path.Combine(this._settings.OFXFileDirectory, newFileName);
             
             File.Move(filePath, newFilePath);
 
-            OFXDocument ofxDocument = this.Read(filePath);
+            OFXDocument ofxDocument = this.Read(newFilePath);
 
             if (ofxDocument == null) return null;
             
