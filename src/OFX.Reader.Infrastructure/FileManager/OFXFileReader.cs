@@ -49,7 +49,8 @@ namespace OFX.Reader.Infrastructure.FileManager {
                     TransactionId = int.Parse(ofxTransaction.FITID),
                     TransactionDate = DateTime.ParseExact(ofxTransaction.DTPOSTED, "yyyyMMdd", null),
                     TransactionType = ofxTransaction.TRNTYPE,
-                    TransactionAmount = decimal.Parse(ofxTransaction.TRNAMT.Replace("-", ""), NumberFormatInfo.InvariantInfo)
+                    TransactionAmount = decimal.Parse(ofxTransaction.TRNAMT.Replace("-", ""), NumberFormatInfo.InvariantInfo),
+                    TransactionDescription = ofxTransaction.MEMO
                 });
             }
             

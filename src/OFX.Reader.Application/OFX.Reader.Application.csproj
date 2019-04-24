@@ -8,4 +8,9 @@
       <PackageReference Include="MediatR" Version="6.0.0" />
     </ItemGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\OFX.Reader.Common\OFX.Reader.Common.csproj" />
+      <ProjectReference Include="..\OFX.Reader.Domain\OFX.Reader.Domain.csproj" />
+    </ItemGroup>
+
 </Project>
