@@ -1,10 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OFX.Reader.Application", "src\OFX.Reader.Application\OFX.Reader.Application.csproj", "{CBAA128B-C7FF-4C1F-BFA4-FF96723716A4}"
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28803.202
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OFX.Reader.Application", "src\OFX.Reader.Application\OFX.Reader.Application.csproj", "{CBAA128B-C7FF-4C1F-BFA4-FF96723716A4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OFX.Reader.Domain", "src\OFX.Reader.Domain\OFX.Reader.Domain.csproj", "{E741245F-903A-4105-94EE-95282AAB5F87}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OFX.Reader.Domain", "src\OFX.Reader.Domain\OFX.Reader.Domain.csproj", "{E741245F-903A-4105-94EE-95282AAB5F87}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OFX.Reader.Persistence", "src\OFX.Reader.Persistence\OFX.Reader.Persistence.csproj", "{F03A6199-465F-4153-A14F-347AD0421B9B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OFX.Reader.Persistence", "src\OFX.Reader.Persistence\OFX.Reader.Persistence.csproj", "{F03A6199-465F-4153-A14F-347AD0421B9B}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Application", "Application", "{465E98A8-D1A6-4853-9C08-200F98721065}"
 EndProject
@@ -14,17 +17,19 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentatio
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{28DC0C6B-B3C2-4842-ACB9-E3A06779C4B8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OFX.Reader.Infrastructure", "src\OFX.Reader.Infrastructure\OFX.Reader.Infrastructure.csproj", "{9952DA4C-54E9-4593-8298-6C67743E09D6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OFX.Reader.Infrastructure", "src\OFX.Reader.Infrastructure\OFX.Reader.Infrastructure.csproj", "{9952DA4C-54E9-4593-8298-6C67743E09D6}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{62CA319B-AF36-43EA-B425-FD34C65EB8E5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OFX.Reader.Infrastructure.Tests", "src\OFX.Reader.Infrastructure.Tests\OFX.Reader.Infrastructure.Tests.csproj", "{796B6B5A-A0DD-47E6-B4F3-45F19C3A9E8B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OFX.Reader.Infrastructure.Tests", "src\OFX.Reader.Infrastructure.Tests\OFX.Reader.Infrastructure.Tests.csproj", "{796B6B5A-A0DD-47E6-B4F3-45F19C3A9E8B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OFX.Reader.Application.Tests", "src\OFX.Reader.Application.Tests\OFX.Reader.Application.Tests.csproj", "{BB44E36E-0C93-4B09-BE56-39F55B1BCB24}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OFX.Reader.Application.Tests", "src\OFX.Reader.Application.Tests\OFX.Reader.Application.Tests.csproj", "{BB44E36E-0C93-4B09-BE56-39F55B1BCB24}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CrossCutting", "CrossCutting", "{D354BC26-9113-4F98-AC6A-0265D6D3A52C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OFX.Reader.Common", "src\OFX.Reader.Common\OFX.Reader.Common.csproj", "{59801465-1210-4436-852A-F2FD86CDEB4A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OFX.Reader.Common", "src\OFX.Reader.Common\OFX.Reader.Common.csproj", "{59801465-1210-4436-852A-F2FD86CDEB4A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OFX.Reader.Web", "src\OFX.Reader.Web\OFX.Reader.Web.csproj", "{DF479D2D-A08F-4F92-A203-DBCEE5FB063B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -60,6 +65,13 @@ Global
 		{59801465-1210-4436-852A-F2FD86CDEB4A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{59801465-1210-4436-852A-F2FD86CDEB4A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{59801465-1210-4436-852A-F2FD86CDEB4A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DF479D2D-A08F-4F92-A203-DBCEE5FB063B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DF479D2D-A08F-4F92-A203-DBCEE5FB063B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DF479D2D-A08F-4F92-A203-DBCEE5FB063B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DF479D2D-A08F-4F92-A203-DBCEE5FB063B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{CBAA128B-C7FF-4C1F-BFA4-FF96723716A4} = {465E98A8-D1A6-4853-9C08-200F98721065}
@@ -69,5 +81,9 @@ Global
 		{796B6B5A-A0DD-47E6-B4F3-45F19C3A9E8B} = {62CA319B-AF36-43EA-B425-FD34C65EB8E5}
 		{BB44E36E-0C93-4B09-BE56-39F55B1BCB24} = {62CA319B-AF36-43EA-B425-FD34C65EB8E5}
 		{59801465-1210-4436-852A-F2FD86CDEB4A} = {D354BC26-9113-4F98-AC6A-0265D6D3A52C}
+		{DF479D2D-A08F-4F92-A203-DBCEE5FB063B} = {13D72F9F-33FC-4A8C-AF6B-EFAEC6D0623B}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {AA5C7957-2A28-44E6-8DA9-DC3E482162D9}
 	EndGlobalSection
 EndGlobal
