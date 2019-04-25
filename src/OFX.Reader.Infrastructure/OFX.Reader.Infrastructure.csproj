@@ -5,10 +5,6 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <PackageReference Include="SgmlReader" Version="1.8.11" />
-    </ItemGroup>
-
-    <ItemGroup>
       <Compile Remove="FileManager\OFXFile\Account.cs" />
       <Compile Remove="FileManager\OFXFile\AccountType.cs" />
       <Compile Remove="FileManager\OFXFile\Balance.cs" />
