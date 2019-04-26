@@ -13,9 +13,9 @@ namespace OFX.Reader.Persistence {
 
     public sealed class TransactionRepository : ITransactionRepository {
 
-        private readonly DatabaseConnector _databaseConnector;
+        private readonly IDatabaseConnector _databaseConnector;
         
-        public TransactionRepository(DatabaseConnector databaseConnector) => this._databaseConnector = databaseConnector;
+        public TransactionRepository(IDatabaseConnector databaseConnector) => this._databaseConnector = databaseConnector;
 
         #region SQL
 
@@ -25,10 +25,10 @@ namespace OFX.Reader.Persistence {
         
         #endregion
 
-        public async Task<int[]> GetTransactionsById(int[] transactionIdCollection) {
+        public async Task<long[]> GetTransactionsById(long[] transactionIdCollection) {
 
             using (SqlConnection connection = new SqlConnection(this._databaseConnector.GetConnectionString())) {
-                IEnumerable<int> result = await connection.QueryAsync<int>(
+                IEnumerable<long> result = await connection.QueryAsync<long>(
                     GET_TRANSACTIONS_BY_ID_SQL, 
                     new {
                         Ids = transactionIdCollection

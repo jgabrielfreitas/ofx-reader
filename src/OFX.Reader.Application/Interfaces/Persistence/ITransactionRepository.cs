@@ -6,7 +6,7 @@ namespace OFX.Reader.Application.Interfaces.Persistence {
 
     public interface ITransactionRepository {
 
-        Task<int[]> GetTransactionsById(int[] transactionIdCollection);
+        Task<long[]> GetTransactionsById(long[] transactionIdCollection);
 
         Task<int> Create(List<TransactionEntity> transactionEntityCollection);
 

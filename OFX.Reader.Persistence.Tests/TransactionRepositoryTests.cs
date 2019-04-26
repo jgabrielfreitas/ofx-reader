@@ -41,15 +41,15 @@ namespace OFX.Reader.Persistence.Tests {
         [Fact]
         public void GetTransactionsByIdTest() {
             
-            int[] transactionIdCollection = new int[1];
+            long[] transactionIdCollection = new long[1];
 
             var result = this._transactionRepository.GetTransactionsById(transactionIdCollection).Result;
             
-            Assert.True(result.Length == 0);
+            Assert.True(result.Length > 0);
         }
 
         private DatabaseSettings InitDatabaseSettings() =>
-            new DatabaseSettings {};
+            new DatabaseSettings { };
 
     }
 

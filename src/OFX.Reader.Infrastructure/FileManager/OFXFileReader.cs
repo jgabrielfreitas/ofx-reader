@@ -46,7 +46,7 @@ namespace OFX.Reader.Infrastructure.FileManager {
 
             foreach (OFXTransaction ofxTransaction in ofxDocument.OFXTransactionCollection) {
                 financialExchange.TransactionCollection.Add(new TransactionModel {
-                    TransactionId = int.Parse(ofxTransaction.FITID),
+                    TransactionId = long.Parse(ofxTransaction.FITID),
                     TransactionDate = DateTime.ParseExact(ofxTransaction.DTPOSTED, "yyyyMMdd", null),
                     TransactionType = ofxTransaction.TRNTYPE,
                     TransactionAmount = decimal.Parse(ofxTransaction.TRNAMT.Replace("-", ""), NumberFormatInfo.InvariantInfo),

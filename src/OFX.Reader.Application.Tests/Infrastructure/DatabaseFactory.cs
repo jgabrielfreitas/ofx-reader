@@ -7,9 +7,9 @@ namespace OFX.Reader.Application.Tests.Infrastructure {
 
     public sealed class DatabaseFactory : ITransactionRepository {
 
-        public async Task<int[]> GetTransactionsById(int[] transactionIdCollection) {
+        public async Task<long[]> GetTransactionsById(long[] transactionIdCollection) {
 
-            int[] foundIds = new int[5];
+            long[] foundIds = new long[5];
             
             for (int i = 0; i < 5; i++) {
                 foundIds[i] = transactionIdCollection[i];

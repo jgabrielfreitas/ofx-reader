@@ -30,7 +30,7 @@ namespace OFX.Reader.Application.OFX.Commands.Create {
                 return null;
             }
 
-            int[] queryResult = await this._transactionRepository
+            long[] queryResult = await this._transactionRepository
                 .GetTransactionsById(financialExchange.TransactionCollection
                 .Select(t => t.TransactionId)
                 .ToArray());
@@ -53,6 +53,10 @@ namespace OFX.Reader.Application.OFX.Commands.Create {
 
             if (insertResult == 0) {
                 //todo: throw exception
+            }
+
+            if (insertResult != transactionsToBePersisted.Count()) {
+                //todo: validate
             }
             
             financialExchange.TransactionCollection.Clear();

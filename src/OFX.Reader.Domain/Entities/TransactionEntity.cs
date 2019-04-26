@@ -7,7 +7,7 @@ namespace OFX.Reader.Domain.Entities {
         public long Id { get; set; }
         public int BankId { get; set; }
         public string AccountId { get; set; }
-        public int TransactionId { get; set; }
+        public long TransactionId { get; set; }
         public DateTime TransactionDate { get; set; }
         public string TransactionType { get; set; }
         public string TransactionDescription { get; set; }
