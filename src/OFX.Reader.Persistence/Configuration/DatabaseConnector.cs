@@ -1,6 +1,6 @@
 namespace OFX.Reader.Persistence.Configuration {
 
-    public sealed class DatabaseConnector {
+    public sealed class DatabaseConnector : IDatabaseConnector {
 
         private readonly DatabaseSettings _settings;
         
