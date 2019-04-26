@@ -39,9 +39,9 @@ namespace OFX.Reader.Infrastructure.FileManager {
             if (ofxDocument == null) return null;
             
             FinancialExchangeModel financialExchange = new FinancialExchangeModel {
-                FileId = fileName,
+                FileId = newFileName,
                 BankId = int.Parse(ofxDocument.BANKID),
-                AccountId = ofxDocument.ACCTID
+                AccountId = ofxDocument.ACCTID,
             };
 
             foreach (OFXTransaction ofxTransaction in ofxDocument.OFXTransactionCollection) {
