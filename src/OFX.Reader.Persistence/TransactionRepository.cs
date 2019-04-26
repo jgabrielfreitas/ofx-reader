@@ -21,11 +21,11 @@ namespace OFX.Reader.Persistence {
 
         private const string GET_COUNT_SQL = @"select COUNT(*) from [transaction];";
 
-        private const string GET_TRANSACTIONS_BY_ID_SQL = @"select transaction_id from [transaction] where bank_id = @bankId and transaction_id in @Ids;";
+        private const string GET_TRANSACTIONS_BY_ID_SQL = @"select transaction_id from [transaction] where bank_id = @bankId and transaction_id_hash in @Ids;";
         
         #endregion
 
-        public async Task<long[]> GetTransactionsById(int bankId, long[] transactionIdCollection) {
+        public async Task<long[]> GetTransactionsById(int bankId, string[] transactionIdCollection) {
 
             using (SqlConnection connection = new SqlConnection(this._databaseConnector.GetConnectionString())) {
                 IEnumerable<long> result = await connection.QueryAsync<long>(
@@ -50,7 +50,8 @@ namespace OFX.Reader.Persistence {
                 {"TransactionId", "transaction_id"},
                 {"TransactionDate", "transaction_date"},
                 {"TransactionType", "transaction_type"},
-                {"TransactionDescription", "transaction_description"}
+                {"TransactionDescription", "transaction_description"},
+                {"TransactionIdHash", "transaction_id_hash"}
             };
 
             string[] membersExposedToReader = tableMapping.Keys.ToArray();

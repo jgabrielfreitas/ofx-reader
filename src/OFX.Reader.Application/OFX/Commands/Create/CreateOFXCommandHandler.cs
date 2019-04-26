@@ -32,7 +32,7 @@ namespace OFX.Reader.Application.OFX.Commands.Create {
 
             long[] queryResult = await this._transactionRepository
                 .GetTransactionsById(financialExchange.BankId, financialExchange.TransactionCollection
-                    .Select(t => t.TransactionId)
+                    .Select(t => t.TransactionId.ToString().ToHashHMAC(financialExchange.AccountId))
                     .ToArray());
 
             IEnumerable<TransactionModel> transactionsToBePersisted = financialExchange.TransactionCollection
@@ -51,7 +51,8 @@ namespace OFX.Reader.Application.OFX.Commands.Create {
                     TransactionId = transactionModel.TransactionId,
                     TransactionDate = transactionModel.TransactionDate,
                     TransactionType = transactionModel.TransactionType,
-                    TransactionDescription = transactionModel.TransactionDescription
+                    TransactionDescription = transactionModel.TransactionDescription,
+                    TransactionIdHash = transactionModel.TransactionId.ToString().ToHashHMAC(financialExchange.AccountId)
                 }).ToList();
 
             int insertResult = await this._transactionRepository.Create(transactionEntityCollection);

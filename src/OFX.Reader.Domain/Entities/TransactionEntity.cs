@@ -13,6 +13,8 @@ namespace OFX.Reader.Domain.Entities {
         public string TransactionDescription { get; set; }
         public string FileId { get; set; }
 
+        public string TransactionIdHash { get; set; }
+
     }
 
 }
