@@ -11,7 +11,10 @@ namespace OFX.Reader.Persistence.Tests {
 
         private readonly ITransactionRepository _transactionRepository;
 
-        public TransactionRepositoryTests() => this._transactionRepository = new TransactionRepository(new DatabaseConnector(this.InitDatabaseSettings()));
+        public TransactionRepositoryTests() {
+            IDatabaseConnector databaseConnector = new DatabaseConnector(this.InitDatabaseSettings());
+            this._transactionRepository = new TransactionRepository(databaseConnector);
+        }
 
         [Fact]
         public void CreateTest() {
@@ -49,7 +52,15 @@ namespace OFX.Reader.Persistence.Tests {
         }
 
         private DatabaseSettings InitDatabaseSettings() =>
-            new DatabaseSettings { };
+            new DatabaseSettings {
+                Host = "armoredboar.database.windows.net",
+                Port = "1433",
+                Database = "",
+                User = "",
+                Password = "",
+                Configurations =
+                    "Pooling=true;Timeout=60;Connection Lifetime=300;Application Name=OFX.Reader.Persistence.Tests"
+            };
 
     }
 

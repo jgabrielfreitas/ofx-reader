@@ -34,7 +34,14 @@ namespace OFX.Reader.Web {
             services.AddTransient<ITransactionRepository, TransactionRepository>();
             services.AddSingleton(new OFXDirectorySettings());
 
-            services.AddSingleton(new DatabaseSettings { });
+            services.AddSingleton(new DatabaseSettings {
+                Database = this.Configuration.GetSection("DbSettings")["Database"],
+                Host = this.Configuration.GetSection("DbSettings")["Host"],
+                Password = this.Configuration.GetSection("DbSettings")["Password"],
+                Port = this.Configuration.GetSection("DbSettings")["Port"],
+                User = this.Configuration.GetSection("DbSettings")["User"],
+                Configurations = this.Configuration.GetSection("DbSettings")["Configurations"]
+            });
 
             services.AddTransient<IDatabaseConnector, DatabaseConnector>();
 
