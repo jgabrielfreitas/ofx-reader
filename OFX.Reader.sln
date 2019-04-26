@@ -31,6 +31,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OFX.Reader.Common", "src\OF
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OFX.Reader.Web", "src\OFX.Reader.Web\OFX.Reader.Web.csproj", "{DF479D2D-A08F-4F92-A203-DBCEE5FB063B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OFX.Reader.Persistence.Tests", "OFX.Reader.Persistence.Tests\OFX.Reader.Persistence.Tests.csproj", "{DAD80B4C-65BE-4CAB-94FD-7076BA4B3C25}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -69,6 +71,10 @@ Global
 		{DF479D2D-A08F-4F92-A203-DBCEE5FB063B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DF479D2D-A08F-4F92-A203-DBCEE5FB063B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DF479D2D-A08F-4F92-A203-DBCEE5FB063B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DAD80B4C-65BE-4CAB-94FD-7076BA4B3C25}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DAD80B4C-65BE-4CAB-94FD-7076BA4B3C25}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DAD80B4C-65BE-4CAB-94FD-7076BA4B3C25}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DAD80B4C-65BE-4CAB-94FD-7076BA4B3C25}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -82,6 +88,7 @@ Global
 		{BB44E36E-0C93-4B09-BE56-39F55B1BCB24} = {62CA319B-AF36-43EA-B425-FD34C65EB8E5}
 		{59801465-1210-4436-852A-F2FD86CDEB4A} = {D354BC26-9113-4F98-AC6A-0265D6D3A52C}
 		{DF479D2D-A08F-4F92-A203-DBCEE5FB063B} = {13D72F9F-33FC-4A8C-AF6B-EFAEC6D0623B}
+		{DAD80B4C-65BE-4CAB-94FD-7076BA4B3C25} = {62CA319B-AF36-43EA-B425-FD34C65EB8E5}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {AA5C7957-2A28-44E6-8DA9-DC3E482162D9}
