@@ -13,7 +13,9 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\src\OFX.Reader.Persistence\OFX.Reader.Persistence.csproj" />
+      <ProjectReference Include="..\OFX.Reader.Application\OFX.Reader.Application.csproj" />
+      <ProjectReference Include="..\OFX.Reader.Domain\OFX.Reader.Domain.csproj" />
+      <ProjectReference Include="..\OFX.Reader.Persistence\OFX.Reader.Persistence.csproj" />
     </ItemGroup>
 
 </Project>
