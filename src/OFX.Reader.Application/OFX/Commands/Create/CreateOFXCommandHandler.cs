@@ -31,9 +31,9 @@ namespace OFX.Reader.Application.OFX.Commands.Create {
             }
 
             long[] queryResult = await this._transactionRepository
-                .GetTransactionsById(financialExchange.TransactionCollection
-                .Select(t => t.TransactionId)
-                .ToArray());
+                .GetTransactionsById(financialExchange.BankId, financialExchange.TransactionCollection
+                    .Select(t => t.TransactionId)
+                    .ToArray());
 
             IEnumerable<TransactionModel> transactionsToBePersisted = financialExchange.TransactionCollection
                 .ExceptWhere(t => queryResult.Contains(t.TransactionId)).ToList();

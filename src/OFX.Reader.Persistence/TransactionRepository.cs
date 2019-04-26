@@ -21,16 +21,17 @@ namespace OFX.Reader.Persistence {
 
         private const string GET_COUNT_SQL = @"select COUNT(*) from [transaction];";
 
-        private const string GET_TRANSACTIONS_BY_ID_SQL = @"select transaction_id from [transaction] where transaction_id in @Ids;";
+        private const string GET_TRANSACTIONS_BY_ID_SQL = @"select transaction_id from [transaction] where bank_id = @bankId and transaction_id in @Ids;";
         
         #endregion
 
-        public async Task<long[]> GetTransactionsById(long[] transactionIdCollection) {
+        public async Task<long[]> GetTransactionsById(int bankId, long[] transactionIdCollection) {
 
             using (SqlConnection connection = new SqlConnection(this._databaseConnector.GetConnectionString())) {
                 IEnumerable<long> result = await connection.QueryAsync<long>(
                     GET_TRANSACTIONS_BY_ID_SQL, 
                     new {
+                        bankId,
                         Ids = transactionIdCollection
                     });
                 return result.ToArray();

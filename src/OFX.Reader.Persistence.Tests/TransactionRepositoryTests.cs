@@ -46,7 +46,7 @@ namespace OFX.Reader.Persistence.Tests {
             
             long[] transactionIdCollection = new long[1];
 
-            var result = this._transactionRepository.GetTransactionsById(transactionIdCollection).Result;
+            var result = this._transactionRepository.GetTransactionsById(1, transactionIdCollection).Result;
             
             Assert.True(result.Length > 0);
         }
