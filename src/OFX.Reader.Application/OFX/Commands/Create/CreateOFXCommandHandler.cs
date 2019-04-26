@@ -37,6 +37,11 @@ namespace OFX.Reader.Application.OFX.Commands.Create {
 
             IEnumerable<TransactionModel> transactionsToBePersisted = financialExchange.TransactionCollection
                 .ExceptWhere(t => queryResult.Contains(t.TransactionId)).ToList();
+
+            if (!transactionsToBePersisted.Any()) {
+                //todo: validate
+                return null;
+            }
             
             List<TransactionEntity> transactionEntityCollection = transactionsToBePersisted
                 .Select(transactionModel => new TransactionEntity {
