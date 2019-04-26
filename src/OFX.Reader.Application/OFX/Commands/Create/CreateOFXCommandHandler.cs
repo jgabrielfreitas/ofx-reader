@@ -25,15 +25,20 @@ namespace OFX.Reader.Application.OFX.Commands.Create {
             
             FinancialExchangeModel financialExchange = this._ofxFileReader.Parse(request.OFXFileName);
 
-            if (financialExchange == null) return null;
+            if (financialExchange == null) {
+                //todo: throw exception
+                return null;
+            }
 
             int[] queryResult = await this._transactionRepository
                 .GetTransactionsById(financialExchange.TransactionCollection
                 .Select(t => t.TransactionId)
                 .ToArray());
+
+            IEnumerable<TransactionModel> transactionsToBePersisted = financialExchange.TransactionCollection
+                .ExceptWhere(t => queryResult.Contains(t.TransactionId)).ToList();
             
-            List<TransactionEntity> transactionEntityCollection = financialExchange.TransactionCollection
-                .ExceptWhere(t => queryResult.Contains(t.TransactionId))
+            List<TransactionEntity> transactionEntityCollection = transactionsToBePersisted
                 .Select(transactionModel => new TransactionEntity {
                     BankId = financialExchange.BankId,
                     FileId = financialExchange.FileId,
@@ -44,7 +49,14 @@ namespace OFX.Reader.Application.OFX.Commands.Create {
                     TransactionDescription = transactionModel.TransactionDescription
                 }).ToList();
 
-            await this._transactionRepository.Create(transactionEntityCollection);
+            int insertResult = await this._transactionRepository.Create(transactionEntityCollection);
+
+            if (insertResult == 0) {
+                //todo: throw exception
+            }
+            
+            financialExchange.TransactionCollection.Clear();
+            financialExchange.TransactionCollection.AddRange(transactionsToBePersisted);
 
             return financialExchange;
 
