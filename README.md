@@ -15,19 +15,20 @@ You will need the following tools:
 Follow these steps to get your development environment set up:
 
   1. Clone the repository
-  2. At the root directory, restore required packages by running:
+  2. Add the repository credentials in `appsettings.Development.json`
+  3. At the root directory, restore the required packages by running:
      ```
      dotnet restore
      ```
-  3. Next, build the solution by running:
+  4. Next, build the solution by running:
      ```
      dotnet build
      ```
-  4. Next, launch the project by running:
+  5. Next, launch the project by running:
      ```
 	 dotnet run
 	 ```
-  5. Launch [http://localhost:5001](http://localhost:5001) in your browser
+  6. Launch [http://localhost:5001](http://localhost:5001) in your browser
 
 ## Technologies
 * [.NET Core 2.2](https://dotnet.microsoft.com/download/dotnet-core/2.2)
