@@ -3,7 +3,7 @@ create table [transaction]
   id bigint identity,
   bank_id int not null,
   account_id nvarchar(24) not null,
-  transaction_id int not null,
+  transaction_id bigint not null,
   transaction_date datetime2 not null,
   transaction_type nvarchar(24) not null,
   transaction_description nvarchar(1024),
