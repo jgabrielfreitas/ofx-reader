@@ -31,11 +31,11 @@ namespace OFX.Reader.Web.Controllers {
                 await file.CopyToAsync(stream);  
             }
             
-            await this.Mediator.Send<FinancialExchangeModel>(new CreateOFXCommand {
+            FinancialExchangeModel financialExchangeModel = await this.Mediator.Send<FinancialExchangeModel>(new CreateOFXCommand {
                 OFXFileName = file.FileName
             });
-  
-            return RedirectToAction("Index"); 
+
+            return this.View("Transactions", financialExchangeModel);
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
