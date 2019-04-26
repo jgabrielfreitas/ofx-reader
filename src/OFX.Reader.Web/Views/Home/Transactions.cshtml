@@ -5,4 +5,78 @@
     Layout = "_Layout";
 }
 
-<h2>Transactions</h2>
+@if (Model?.TransactionCollection == null) {
+    <p>No transactions inserted.</p>
+}
+else {
+    <br/>
+    <div>
+        <text>
+            <b>Transactions added:</b> <br />
+            Bank Id: @Model.BankId <br />
+            Account Id: @Model.AccountId <br />
+            File Name: @Model.FileId <br />
+        </text> <br/><br/>
+        <table id="t01">
+            <thead>
+            <th>Transaction Date</th>
+            <th>Transaction Type</th>
+            <th>Transaction Id</th>
+            <th>Transaction Amount</th>
+            <th>Transaction Description</th>
+            </thead>
+            @foreach (var item in Model.TransactionCollection) {
+
+                <tr>
+                    <td>
+                        @item.TransactionDate.ToShortDateString()
+                    </td>
+                    <td>
+                        @item.TransactionType
+                    </td>
+                    <td>
+                        @item.TransactionId
+                    </td>
+                    <td>
+                        R$ @item.TransactionAmount
+                    </td>
+                    <td>
+                        @item.TransactionDescription
+                    </td>
+                </tr>
+            }
+        </table>
+    </div>
+    <style>
+        table#t01 {
+            width: 100%;
+            background-color: #f1f1c1;
+        }
+
+        table#t01 tr:nth-child(even) {
+            background-color: #eee;
+        }
+        table#t01 tr:nth-child(odd) {
+            background-color: #fff;
+        }
+        table#t01 th {
+            color: white;
+            background-color: lightseagreen;
+        }
+        table, th, td {
+            border: 1px solid black;
+        }
+        table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+        table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 15px;
+        }
+    </style>
+}
+

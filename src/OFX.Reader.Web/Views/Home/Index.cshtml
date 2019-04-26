@@ -2,9 +2,13 @@
     ViewData["Title"] = "Home Page";
 }
 
-<form asp-controller="Home" asp-action="UploadFile" method="post"  
-      enctype="multipart/form-data">  
-      
-    <input type="file" name="file" />  
-    <button type="submit">Upload File</button>  
-</form> 
+<h2>OFX File Reader</h2> <br/>
+
+<div>
+    <form asp-controller="Home" asp-action="UploadFile" method="post"
+          enctype="multipart/form-data">
+
+        <input type="file" name="file"/>
+        <button type="submit">Upload File</button>
+    </form>
+</div>
