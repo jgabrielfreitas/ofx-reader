@@ -13,6 +13,8 @@ using OFX.Reader.Application.Interfaces.Infrastructure;
 using OFX.Reader.Application.Interfaces.Persistence;
 using OFX.Reader.Application.OFX.Commands.Create;
 using OFX.Reader.Infrastructure.FileManager;
+using OFX.Reader.Persistence;
+using OFX.Reader.Persistence.Configuration;
 
 namespace OFX.Reader.Web {
     public class Startup {
@@ -29,8 +31,12 @@ namespace OFX.Reader.Web {
             services.AddMediatR(typeof(CreateOFXCommandHandler).GetTypeInfo().Assembly);
 
             services.AddTransient<IOFXFileReader, OFXFileReader>();
-            //services.AddTransient<ITransactionRepository>();
+            services.AddTransient<ITransactionRepository, TransactionRepository>();
             services.AddSingleton(new OFXDirectorySettings());
+
+            services.AddSingleton(new DatabaseSettings { });
+
+            services.AddTransient<IDatabaseConnector, DatabaseConnector>();
 
             services.AddSingleton<IFileProvider>(
                 new PhysicalFileProvider(Path.Combine(Directory.GetCurrentDirectory(), "wwwroot"))
