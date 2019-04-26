@@ -10,9 +10,7 @@ namespace OFX.Reader.Infrastructure.Tests.FileManager {
         private readonly OFXDirectorySettings _settings;
         private const string FILE_NAME = "extrato_santander.ofx";
         
-        public OFXFileReaderTest() {
-            this._settings = this.Init();
-        }
+        public OFXFileReaderTest() => this._settings = Init();
 
         [Fact]
         public void OpenOFXFileTest() {
@@ -26,8 +24,11 @@ namespace OFX.Reader.Infrastructure.Tests.FileManager {
             Assert.False(string.IsNullOrEmpty(fileContent.BANKID));
         }
 
-        private OFXDirectorySettings Init() {
-            return new OFXDirectorySettings();
-        }
+        private static OFXDirectorySettings Init() =>
+            new OFXDirectorySettings {
+                OFXFileDirectory = @"..\..\..\..\..\ofx_files",
+                OFXProcessedFileDirectory = @"..\..\..\..\..\ofx_processed_files"
+            };
+
     }
 }
