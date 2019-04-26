@@ -24,8 +24,11 @@ namespace OFX.Reader.Web.Controllers {
             
             if (file == null || file.Length == 0)  
                 return this.Content("file not selected");
-            
-            string path = Path.Combine( @"..\..\ofx_files", file.FileName);  
+
+            if (Path.GetExtension(file.FileName).ToLower() != ".ofx")
+                return this.Content("File not supported");
+
+            string path = Path.Combine( @"..\..\ofx_files", file.FileName);
   
             using (FileStream stream = new FileStream(path, FileMode.Create)) {  
                 await file.CopyToAsync(stream);  
